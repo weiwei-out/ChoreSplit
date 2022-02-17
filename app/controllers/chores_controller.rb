@@ -9,9 +9,14 @@ class ChoresController < ApplicationController
     #     render json: @current_user.chores, status: :created
     # end 
 
+    # def create 
+    #     chore = @current_user.chores.create!(chore_params) 
+    #     render json: chore, status: :created
+    # end
+
     def create 
-        recipe = @current_user.chores.create!(recipe_params) 
-        render json: recipe, status: :created
+        chore = Chore.create!(chore_params) 
+        render json: chore, status: :created
     end
 
     private 

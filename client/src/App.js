@@ -10,6 +10,7 @@ import ChoreCard from "./ChoreCard";
 function App() {
   const [chores, setChores] = useState([]);
 
+  //GET
   useEffect(() => {
     fetch("/chores")
       .then((r) => r.json())
@@ -20,6 +21,21 @@ function App() {
     // .then((items) => console.log(items));
   }, []);
 
+  //POST
+  function postChore(chore) {
+    fetch("/chores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(chore),
+    })
+      .then((res) => res.json())
+      .then((newChore) => {
+        setChores([newChore, ...chores]);
+      });
+  }
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -28,7 +44,7 @@ function App() {
           <HomePage chores={chores} />
         </Route>
         <Route path="/createchore">
-          <CreateChore />
+          <CreateChore postChore={postChore} />
         </Route>
         <Route path="/completedchores">
           <CompletedChores />
