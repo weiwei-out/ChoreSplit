@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # puts "Deleting old data"
-
+puts " 🌱 Seeding Sum MF Data "
 
 User.create(name:"Andrew", nickname:"dumbfck", picture:"cow", password:"123")
 User.create(name:"Michael", nickname:"Germany", picture:"bird", password:"456")
@@ -21,3 +21,5 @@ Chore.create(name:"scrub", description:"toilet", points:100, completed:true)
 UserChore.create(user_id:1, chore_id:1)
 UserChore.create(user_id:2, chore_id:2)
 UserChore.create(user_id:3, chore_id:3)
+
+puts "🐱‍👤 Done Seeding! D-I-U!"

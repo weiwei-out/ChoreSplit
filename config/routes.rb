@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :chores, only: [:index, :create, :destroy]
+  resources :chores
   # resources :user_chores, only: [:index]
+
+  patch '/chores/:id', to: "chores#update"
 
   get '/users', to: "users#index"
   post '/signup', to: "users#create"

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function CreateChore({ postChore }) {
-  // console.log("CreateChore");
   const [newChore, setNewChore] = useState({
     name: "",
     description: "",

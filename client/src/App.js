@@ -8,18 +8,39 @@ import CompletedChores from "./CompletedChores";
 import ChoreCard from "./ChoreCard";
 
 function App() {
+  const [isPublic, setIsPublic] = useState([]);
   const [chores, setChores] = useState([]);
 
-  //GET
+  //GET -> Chores that belong to User
+  useEffect(() => {
+    fetch("/users")
+      .then((r) => r.json())
+      .then(setChores)
+      .then(console.log(chores));
+  }, []);
+
+  //GET -> All Chores
   useEffect(() => {
     fetch("/chores")
       .then((r) => r.json())
-      .then(setChores)
-      // .then(console.log("before"))
-      .then(console.log(chores));
-    // .then(console.log("after"));
-    // .then((items) => console.log(items));
+      .then(setIsPublic)
+      .then(console.log(isPublic));
   }, []);
+
+  function handleUpdate(id) {
+    fetch(`/chores/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        completed: true,
+      }),
+    })
+      .then((r) => r.json())
+      .then((updatedItem) => console.log(updatedItem));
+  }
 
   //POST
   function postChore(chore) {
@@ -36,18 +57,24 @@ function App() {
       });
   }
 
+  //User? -> filter results using JOIN table -> pass HomePage {chores}
+
   return (
     <BrowserRouter>
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <HomePage chores={chores} />
+          <HomePage
+            chores={chores}
+            isPublic={isPublic}
+            handleUpdate={handleUpdate}
+          />
         </Route>
         <Route path="/createchore">
           <CreateChore postChore={postChore} />
         </Route>
         <Route path="/completedchores">
-          <CompletedChores />
+          <CompletedChores isPublic={isPublic} />
         </Route>
       </Switch>
     </BrowserRouter>
@@ -55,3 +82,19 @@ function App() {
 }
 
 export default App;
+
+/*
+
+user clicks "complete" button -> 
+1) frontend: state: show -> hide 
+2) backend: complete: false -> true
+
+User no longer sees the card. 
+
+user clicks Completed Chores tab -> 
+0) useEffect runs -> gathers all chores where complete: true 
+1) the chore that was completed will show 
+
+
+
+*/

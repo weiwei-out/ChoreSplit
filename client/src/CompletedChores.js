@@ -1,11 +1,15 @@
 import React from "react";
 import ChoreCard from "./ChoreCard";
 
-export default function CompletedChores() {
+export default function CompletedChores({ isPublic }) {
   return (
     <div>
-      <ChoreCard></ChoreCard>
-      <p>CompletedChores Works</p>
+      <p>CompletedChores - Status: Working</p>
+      {isPublic
+        .filter((chore) => chore.completed == true)
+        .map((i) => (
+          <ChoreCard chore={i} key={`${i.id}`} />
+        ))}
     </div>
   );
 }
