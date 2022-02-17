@@ -1,28 +1,38 @@
 // client/src/components/App.js
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import NavBar from "./NavBar";
+import CreateChore from "./CreateChore";
+import CompletedChores from "./CompletedChores";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [chore, setChore] = useState([]);
 
   useEffect(() => {
-    fetch("/hello")
+    fetch("http://localhost:3000/test")
       .then((r) => r.json())
-      .then((data) => setCount(data.count));
+      .then(setChore)
+      .then(console.log("before"))
+      .then(console.log(chore))
+      .then(console.log("after"));
+    // .then((items) => console.log(items));
   }, []);
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/createchore">
+          <CreateChore />
+        </Route>
+        <Route path="/completedchores">
+          <CompletedChores />
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
