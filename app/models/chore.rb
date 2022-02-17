@@ -5,6 +5,6 @@ class Chore < ApplicationRecord
 
     validates :name, presence: true 
     validates :description, presence: true, length: { maximum: 30 }
-    validates :points, presence: true, numericality: { in: 1..5 }
+    validates :points, presence: true, numericality: { in: 1..10000 }
 
 end

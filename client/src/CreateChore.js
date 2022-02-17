@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function CreateChore({ postChore }) {
-  console.log("CreateChore");
+  // console.log("CreateChore");
   const [newChore, setNewChore] = useState({
     name: "",
     description: "",
@@ -29,9 +29,9 @@ export default function CreateChore({ postChore }) {
         <label>Description:</label>
         <input type="text" name="description" onChange={handleChange} />
         <label>Points:</label>
-        <input type="number" name="name" onChange={handleChange} />
+        <input type="number" name="points" onChange={handleChange} />
         <label>Completed:</label>
-        <input type="boolean" name="name" onChange={handleChange} />
+        <input type="boolean" name="completed" onChange={handleChange} />
         <button type="submit">Create</button>
       </form>
     </>
