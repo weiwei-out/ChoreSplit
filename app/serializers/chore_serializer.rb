@@ -1,3 +1,3 @@
 class ChoreSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :points, :completed
+  attributes :name, :description, :points, :completed
 end
