@@ -10,13 +10,10 @@ function App() {
   const [chore, setChore] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/test")
+    fetch("/test")
       .then((r) => r.json())
       .then(setChore)
-      .then(console.log("before"))
-      .then(console.log(chore))
-      .then(console.log("after"));
-    // .then((items) => console.log(items));
+      .then(console.log(chore));
   }, []);
 
   return (

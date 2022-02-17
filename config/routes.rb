@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-  resources :user_chores
-  resources :chores
-  resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :chores, only: [:index, :create, :destroy]
+  # resources :user_chores, only: [:index]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '/users', to: "users#index"
+  post '/signup', to: "users#create"
+  get '/me', to: "users#show"
+  
+  # post '/login', to: "sessions#create"
+  # delete '/logout', to: "sessions#destroy" 
 
-  # route to test your configuration
-  # get '/hello', to: 'application#hello_world'
-
-  get '/test', to: 'chores#index'
+  get 'userchores', to: "user_chores#index"
 
   get '*path',
       to: 'fallback#index',
