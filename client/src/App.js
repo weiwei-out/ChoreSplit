@@ -5,17 +5,18 @@ import HomePage from "./HomePage";
 import NavBar from "./NavBar";
 import CreateChore from "./CreateChore";
 import CompletedChores from "./CompletedChores";
+import ChoreCard from "./ChoreCard";
 
 function App() {
-  const [chore, setChore] = useState([]);
+  const [chores, setChores] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/test")
+    fetch("/test")
       .then((r) => r.json())
-      .then(setChore)
-      .then(console.log("before"))
-      .then(console.log(chore))
-      .then(console.log("after"));
+      .then(setChores)
+      // .then(console.log("before"))
+      .then(console.log(chores));
+    // .then(console.log("after"));
     // .then((items) => console.log(items));
   }, []);
 
@@ -24,7 +25,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <HomePage chores={chores} />
         </Route>
         <Route path="/createchore">
           <CreateChore />
