@@ -6,15 +6,19 @@ function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div>
-      <p>Chore Split</p>
+    <div id="try1">
+      <p id="try2">Chore Split</p>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
           <p></p>
           <p>
             Don't have an account? &nbsp;
-            <button color="secondary" onClick={() => setShowLogin(false)}>
+            <button
+              className="try3"
+              color="secondary"
+              onClick={() => setShowLogin(false)}
+            >
               Create Account
             </button>
           </p>
@@ -25,7 +29,11 @@ function Login({ onLogin }) {
           <div></div>
           <p>
             Already have an account? &nbsp;
-            <button color="secondary" onClick={() => setShowLogin(true)}>
+            <button
+              className="try3"
+              color="secondary"
+              onClick={() => setShowLogin(true)}
+            >
               Sign In
             </button>
           </p>

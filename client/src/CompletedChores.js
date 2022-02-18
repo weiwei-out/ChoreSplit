@@ -3,8 +3,8 @@ import ChoreCard from "./ChoreCard";
 
 export default function CompletedChores({ isPublic, handleDelete }) {
   return (
-    <div>
-      <p>CompletedChores - Status: Working</p>
+    <div id="try9">
+      <p id="try10">Completed Chores</p>
       {isPublic
         .filter((chore) => chore.completed === true)
         .map((i) => (

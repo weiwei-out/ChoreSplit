@@ -20,19 +20,32 @@ export default function CreateChore({ postChore }) {
   }
 
   return (
-    <>
-      <p>Add a Chore!</p>
-      <form onSubmit={handleSubmit}>
-        <label>Chore Name:</label>
-        <input type="text" name="name" onChange={handleChange} />
-        <label>Description:</label>
-        <input type="text" name="description" onChange={handleChange} />
-        <label>Points:</label>
-        <input type="number" name="points" onChange={handleChange} />
-        <label>Completed:</label>
-        <input type="boolean" name="completed" onChange={handleChange} />
-        <button type="submit">Create</button>
-      </form>
-    </>
+    <div id="try9">
+      <p id="try10">Add a Chore!</p>
+      <div id="notime">
+        <form onSubmit={handleSubmit}>
+          <div id="try11">
+            <label>Chore Name:</label>
+            <input type="text" name="name" onChange={handleChange} />
+          </div>
+          <div id="try11">
+            <label>Description:</label>
+            <input type="text" name="description" onChange={handleChange} />
+          </div>
+          <div id="try11">
+            <label>Points:</label>
+            <input type="number" name="points" onChange={handleChange} />
+          </div>
+          <div id="try11">
+            <label>Completed:</label>
+
+            <input type="boolean" name="completed" onChange={handleChange} />
+          </div>
+          <div id="try11">
+            <button type="submit">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }

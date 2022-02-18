@@ -18,18 +18,21 @@ export default function NavBar({ user, setUser }) {
         <div id="NavBar">
           <span className="HeaderSpan"></span>
           <span className="HeaderSpan" id="HeaderName">
-            <div as={Link} to="/">
-              ChoreSplit
-            </div>
+            <Link to="/">
+              <div>ChoreSplit</div>
+            </Link>
           </span>
           <span className="HeaderSpan">
-            <button as={Link} to="/new">
-              Add Chore
+            <Link to="/createchore">
+              <div className="try8">Add Chore</div>
+            </Link>
+            <Link to="/completedchores">
+              <div className="try8">Completed Chores</div>
+            </Link>
+
+            <button className="try9" onClick={handleLogoutClick}>
+              Logout
             </button>
-            <button as={Link} to="/userchores">
-              Completed Chores
-            </button>
-            <button onClick={handleLogoutClick}>Logout</button>
           </span>
         </div>
       </div>

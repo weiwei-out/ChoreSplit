@@ -5,10 +5,12 @@
   --color2: #848380;
   --color3: #d5a463;
   --color4: #dccfc3;
+  --colora: #9c9288;
   --color5: #5a8b55;
   --color6: #90c777;
   --color7: #ffffff;
   --color8: #c55a8b;
+  --color9: #5a2240;
 }
 
 * {
@@ -28,7 +30,7 @@ body {
   display: table;
   width: 100%;
   table-layout: fixed; /* For cells of equal size */
-  height: 10vw;
+  height: 6vw;
   border-color: var(--color8);
   background-color: var(--color8);
 }
@@ -38,7 +40,7 @@ body {
   display: table-cell;
   text-align: center;
   border-color: var(--color8);
-  padding-top: 4vw;
+  padding-top: 1vw;
   /* padding-bottom: 1vw; */
 }
 
@@ -53,16 +55,119 @@ body {
 }
 
 /* -------------------------Card------------------------- */
-.ChoreCard {
+.chore_card {
   background-color: var(--color2);
   border-color: var(--color2);
   border-radius: 15px;
-  width: 15vw;
-  height: 20vw;
+  width: 7vw;
+  height: 7vw;
   color: var(--color7);
   /* border: 2px solid; */
   padding: 1vw;
-  margin: 4vw;
+  margin: 3vw;
   text-align: center;
   box-shadow: 20px -20px var(--color1);
 }
+
+.bar1 {
+  padding-top: 2vw;
+  width: 100%;
+  text-align: center;
+  font-size: 2vw;
+  background-color: var(--color4);
+}
+.bara {
+  padding-top: 2vw;
+  width: 100%;
+  text-align: center;
+  font-size: 2vw;
+  background-color: var(--colora);
+}
+
+#bar2 {
+  background-color: var(--colora);
+  width: 50%;
+  float: left;
+  height: 1000vw;
+}
+#bar3 {
+  background-color: var(--color4);
+  width: 50%;
+  float: left;
+}
+
+#bar4 {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+}
+
+#bar5 {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  height: 1000vw;
+}
+
+#try1 {
+  background-color: var(--color8);
+  height: 100vw;
+  font-size: 1.1vw;
+  /* align-items: center; */
+  padding-left: 30vw;
+}
+
+#try2 {
+  font-size: 5vw;
+  padding-top: 1vw;
+  padding-bottom: 2vw;
+}
+
+#try3 {
+  height: 100vw;
+  border: none;
+}
+
+.try8 {
+  background-color: var(--color9);
+  border-style: none;
+  width: 7vw;
+  margin-top: 0.3vw;
+  padding: 0.5vw;
+  color: white;
+  margin-left: 13.1vw;
+}
+
+.try9 {
+  background-color: var(--color9);
+  border-style: none;
+  width: 7vw;
+  /* margin: vw; */
+  margin-top: 0.2vw;
+  padding: 0.5vw;
+  color: white;
+}
+
+#try9 {
+  background-color: var(--color4);
+  height: 100vw;
+}
+
+#try10 {
+  font-size: 1.8vw;
+  text-align: center;
+  padding: 0.5vw;
+  margin-bottom: 1vw;
+}
+
+#try11 {
+  margin-right: 44vw;
+  padding: 0.5vw;
+  text-align: right;
+  font-size: 1vw;
+}
+
+/* #notime {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color6);
+  width: 30vw;
+} */

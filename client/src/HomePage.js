@@ -11,32 +11,38 @@ export default function HomePage({
   return (
     <div>
       <div>
-        <p>Homepage - Status: Working</p>
-        <p>Homepage - Section 1: Chores assigned to User (incomplete)</p>
-        {chores
-          .filter((chore) => chore.completed === false)
-          .map((i) => (
-            <ChoreCard
-              chore={i}
-              key={`${i.id}`}
-              handleUpdate={handleUpdate}
-              handleDelete={handleDelete}
-              claimChore={claimChore} //new
-            />
-          ))}
-        <p>Homepage - Section 2: Chores unassigned (incomplete)</p>
-        {isPublic
-          .filter((chore) => chore.completed === false)
-          .map((i) => (
-            <ChoreCard
-              chore={i}
-              key={`${i.id}`}
-              handleUpdate={handleUpdate}
-              handleDelete={handleDelete}
-              claimChore={claimChore} //new
-            />
-          ))}
-        <p></p>
+        <div id="bar2">
+          <div className="bar1">My Chores</div>
+          <div id="bar4">
+            {chores
+              .filter((chore) => chore.completed === false)
+              .map((i) => (
+                <ChoreCard
+                  chore={i}
+                  key={`${i.id}`}
+                  handleUpdate={handleUpdate}
+                  handleDelete={handleDelete}
+                  claimChore={claimChore} //new
+                />
+              ))}
+          </div>
+        </div>
+        <div id="bar3">
+          <div className="bara">Public Chores</div>
+          <div id="bar5">
+            {isPublic
+              .filter((chore) => chore.completed === false)
+              .map((i) => (
+                <ChoreCard
+                  chore={i}
+                  key={`${i.id}`}
+                  handleUpdate={handleUpdate}
+                  handleDelete={handleDelete}
+                  claimChore={claimChore} //new
+                />
+              ))}
+          </div>
+        </div>
       </div>
     </div>
   );
