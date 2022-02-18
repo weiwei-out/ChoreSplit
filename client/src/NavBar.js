@@ -2,6 +2,14 @@ import React from "react";
 // import { Navbar, Container, Nav } from "react-bootstrap";
 
 export default function NavBar() {
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
+
   return (
     <>
       {/* <p>Navigation Bar - Status: Working</p> */}
