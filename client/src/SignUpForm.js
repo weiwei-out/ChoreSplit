@@ -37,7 +37,6 @@ function SignUpForm({ onLogin }) {
 
   return (
     <>
-      <p>Please Log In</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
@@ -81,7 +80,7 @@ function SignUpForm({ onLogin }) {
         />
         <button variant="fill" color="primary" type="submit">
           {" "}
-          {isLoading ? "Loading..." : "Create"}
+          {isLoading ? "Loading..." : "Create Account"}
         </button>
         <form>
           {errors.map((err) => (

@@ -76,15 +76,15 @@ function App() {
     <BrowserRouter>
       <NavBar user={user} setUser={setUser} />
       <Switch>
-        <Route path="/new">
-          <CreateChore user={user} />
-        </Route>
         <Route exact path="/">
           <HomePage
             chores={chores}
             isPublic={isPublic}
             handleUpdate={handleUpdate}
           />
+          <Route path="/new">
+            <CreateChore user={user} />
+          </Route>
         </Route>
         <Route path="/createchore">
           <CreateChore postChore={postChore} />

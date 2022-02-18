@@ -10,13 +10,18 @@ class UsersController < ApplicationController
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
-        render json: user
+        render json: user, status: :created
     end
 
     def show 
         user = @current_user
         render json: user, status: :ok
     end
+
+    # def show_user
+    #     user = User.find_by(id: session[:user_id])
+    #     render json: user, status: :created
+    # end
 
     private 
 
