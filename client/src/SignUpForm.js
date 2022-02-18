@@ -77,11 +77,11 @@ function SignUpForm({ onLogin }) {
           {" "}
           {isLoading ? "Loading..." : "Create Account"}
         </button>
-        <form>
+        <div>
           {errors.map((err) => (
             <div key={err}>{err}</div>
           ))}
-        </form>
+        </div>
       </form>
     </>
   );
