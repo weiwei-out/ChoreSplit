@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :chores
-  resources :user_chores, only: [:index]
+  resources :user_chores, only: [:index, :create] #update
 
   patch '/chores/:id', to: "chores#update"
   delete '/chores/:id', to: "chores#destroy"
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy" 
 
-  get '/userchores', to: "user_chores#index"
+  # get '/userchores', to: "user_chores#index"
+  # post '/userchores', to: "user_chores#create"  #update
 
   get '*path',
       to: 'fallback#index',

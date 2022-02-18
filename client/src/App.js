@@ -26,16 +26,16 @@ function App() {
   useEffect(() => {
     fetch("/users")
       .then((r) => r.json())
-      .then(setChores)
-      .then(console.log(chores));
+      .then(setChores);
+    // .then(console.log(chores));
   }, []);
 
-  //GET -> All Chores
+  //GET -> All Chores that are unassigned
   useEffect(() => {
     fetch("/chores")
       .then((r) => r.json())
-      .then(setIsPublic)
-      .then(console.log(isPublic));
+      .then(setIsPublic);
+    // .then(console.log(isPublic));
   }, []);
 
   //PATCH set completed = true
@@ -95,6 +95,20 @@ function App() {
       });
   }
 
+  //POST to UserChore
+  function claimChore(chore) {
+    console.log("firing");
+    fetch("/user_chores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(chore),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
+
   //User? -> filter results using JOIN table -> pass HomePage {chores}
   if (!user) return <Login onLogin={setUser} />;
   return (
@@ -107,6 +121,7 @@ function App() {
             isPublic={isPublic}
             handleUpdate={handleUpdate}
             handleDelete={handleDelete}
+            claimChore={claimChore}
           />
           <Route path="/new">
             <CreateChore user={user} />

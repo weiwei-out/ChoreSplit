@@ -9,12 +9,17 @@ class ChoresController < ApplicationController
     end
 
     def index 
-        @current_user
-        render json: @current_user.chores
+        # byebug
+        returnvalue = Chore.all.filter do |chore| 
+            chore.completed == false && chore.user_chore.empty? 
+        end 
+        # returnvalue = @current_user.chores
+        render json: returnvalue
     end 
 
     def create 
-        chore = @current_user.chores.create!(chore_params) 
+        # chore = @current_user.chores.create!(chore_params) 
+        chore = Chore.create!(chore_params) 
         render json: chore, status: :created
     end
 

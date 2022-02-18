@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function ChoreCard({ chore, handleUpdate, handleDelete }) {
+export default function ChoreCard({
+  chore,
+  handleUpdate,
+  handleDelete,
+  claimChore,
+}) {
   return (
     <div className="chore_card">
       <div className="image_card">
@@ -28,6 +33,15 @@ export default function ChoreCard({ chore, handleUpdate, handleDelete }) {
         }}
       >
         Delete
+      </button>
+      <button
+        onClick={(event) => {
+          // event.preventDefault();
+          console.log(chore.id);
+          claimChore({ user_id: 4, chore_id: chore.id }); //static
+        }}
+      >
+        Claim
       </button>
     </div>
   );

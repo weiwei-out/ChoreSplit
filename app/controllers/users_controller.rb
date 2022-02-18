@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     skip_before_action :authorize_user, only: :create
 
     def index 
-        user = User.all.find_by(name: "Andrew").chores
+        user = User.all.find_by(name: "asdf").chores 
         render json: user
     end
 

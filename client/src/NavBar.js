@@ -18,7 +18,9 @@ export default function NavBar({ user, setUser }) {
         <div id="NavBar">
           <span className="HeaderSpan"></span>
           <span className="HeaderSpan" id="HeaderName">
-            ChoreSplit
+            <div as={Link} to="/">
+              ChoreSplit
+            </div>
           </span>
           <span className="HeaderSpan">
             <button as={Link} to="/new">

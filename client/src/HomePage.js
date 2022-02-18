@@ -6,6 +6,7 @@ export default function HomePage({
   isPublic,
   handleUpdate,
   handleDelete,
+  claimChore,
 }) {
   return (
     <div>
@@ -20,6 +21,7 @@ export default function HomePage({
               key={`${i.id}`}
               handleUpdate={handleUpdate}
               handleDelete={handleDelete}
+              claimChore={claimChore} //new
             />
           ))}
         <p>Homepage - Section 2: Chores unassigned (incomplete)</p>
@@ -31,6 +33,7 @@ export default function HomePage({
               key={`${i.id}`}
               handleUpdate={handleUpdate}
               handleDelete={handleDelete}
+              claimChore={claimChore} //new
             />
           ))}
         <p></p>
