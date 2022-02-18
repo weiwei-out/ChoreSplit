@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import { Navbar, Container, Nav } from "react-bootstrap";
 
-export default function NavBar() {
+export default function NavBar({ user, setUser }) {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -20,8 +21,13 @@ export default function NavBar() {
             ChoreSplit
           </span>
           <span className="HeaderSpan">
-            <span className="HeaderLinks">Add Chore</span>
-            <span className="HeaderLinks">Completed Chores</span>
+            <button as={Link} to="/new">
+              Add Chore
+            </button>
+            <button as={Link} to="/userchores">
+              Completed Chores
+            </button>
+            <button onClick={handleLogoutClick}>Logout</button>
           </span>
         </div>
       </div>
