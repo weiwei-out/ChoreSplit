@@ -27,7 +27,6 @@ function LoginForm({ onLogin }) {
 
   return (
     <>
-      <p>Please Log In</p>
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
         <input

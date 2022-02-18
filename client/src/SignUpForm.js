@@ -81,7 +81,7 @@ function SignUpForm({ onLogin }) {
         />
         <button variant="fill" color="primary" type="submit">
           {" "}
-          {isLoading ? "Loading..." : "Login"}
+          {isLoading ? "Loading..." : "Create"}
         </button>
         <form>
           {errors.map((err) => (
