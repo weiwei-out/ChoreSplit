@@ -28,6 +28,18 @@ class ChoresController < ApplicationController
         end
     end
 
+    def destroy
+        chore = Chore.find_by(id: params[:id])
+        # byebug
+        if chore
+            chore.destroy
+            head :no_content
+        else
+            render json: { error: "Chore not found" }, status: :not_found
+        end
+        
+    end 
+
     # def create 
     #     chore = Chore.create!(chore_params) 
     #     render json: chore, status: :created

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :user_chores, only: [:index]
 
   patch '/chores/:id', to: "chores#update"
+  delete '/chores/:id', to: "chores#destroy"
 
   get '/users', to: "users#index"
   post '/signup', to: "users#create"

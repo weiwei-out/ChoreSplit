@@ -22,8 +22,6 @@ function App() {
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
-
   //GET -> Chores that belong to User
   useEffect(() => {
     fetch("/users")
@@ -40,6 +38,7 @@ function App() {
       .then(console.log(isPublic));
   }, []);
 
+  //PATCH set completed = true
   function handleUpdate(id) {
     fetch(`/chores/${id}`, {
       method: "PATCH",
@@ -53,6 +52,32 @@ function App() {
     })
       .then((r) => r.json())
       .then((updatedItem) => console.log(updatedItem));
+  }
+
+  //DELETE
+  function handleDelete(id) {
+    fetch(`/chores/${id}`, {
+      // fetch(`http://localhost:3000/chores/${id}`, {
+      method: "DELETE",
+      // }).then(() => {
+      //   debugger;
+      // });
+    })
+      .then(
+        setIsPublic(
+          isPublic.filter((c) => {
+            return c.id !== id;
+          })
+        )
+      )
+      .then(
+        setChores(
+          chores.filter((c) => {
+            return c.id !== id;
+          })
+        )
+      );
+    // console.log("Nick 3/4:", id);
   }
 
   //POST
@@ -71,7 +96,7 @@ function App() {
   }
 
   //User? -> filter results using JOIN table -> pass HomePage {chores}
-
+  if (!user) return <Login onLogin={setUser} />;
   return (
     <BrowserRouter>
       <NavBar user={user} setUser={setUser} />
@@ -81,6 +106,7 @@ function App() {
             chores={chores}
             isPublic={isPublic}
             handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
           />
           <Route path="/new">
             <CreateChore user={user} />
@@ -90,7 +116,7 @@ function App() {
           <CreateChore postChore={postChore} />
         </Route>
         <Route path="/completedchores">
-          <CompletedChores isPublic={isPublic} />
+          <CompletedChores isPublic={isPublic} handleDelete={handleDelete} />
         </Route>
       </Switch>
     </BrowserRouter>
