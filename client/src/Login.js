@@ -15,7 +15,7 @@ function Login({ onLogin }) {
           <p>
             Don't have an account? &nbsp;
             <button color="secondary" onClick={() => setShowLogin(false)}>
-              Sign Up
+              Create An Account
             </button>
           </p>
         </>
@@ -26,7 +26,7 @@ function Login({ onLogin }) {
           <p>
             Already have an account? &nbsp;
             <button color="secondary" onClick={() => setShowLogin(true)}>
-              Log In
+              Sign In
             </button>
           </p>
         </>

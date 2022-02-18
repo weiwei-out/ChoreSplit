@@ -15,7 +15,6 @@ export default function ChoreCard({ chore, handleUpdate }) {
       <button
         onClick={(event) => {
           event.preventDefault();
-          // console.log(chore.id);
           handleUpdate(chore.id); //FIX
         }}
       >

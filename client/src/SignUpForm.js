@@ -25,12 +25,12 @@ function SignUpForm({ onLogin }) {
         password,
         password_confirmation: passwordConfirmation,
       }),
-    }).then((r) => {
+    }).then((res) => {
       setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
+      if (res.ok) {
+        res.json().then((user) => onLogin(user));
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        res.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -42,7 +42,6 @@ function SignUpForm({ onLogin }) {
         <input
           type="text"
           id="name"
-          autoComplete="off"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -50,7 +49,6 @@ function SignUpForm({ onLogin }) {
         <input
           type="text"
           id="nickname"
-          autoComplete="off"
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
         />
@@ -58,7 +56,6 @@ function SignUpForm({ onLogin }) {
         <input
           type="text"
           id="picture"
-          autoComplete="off"
           value={picture}
           onChange={(e) => setPicture(e.target.value)}
         />
@@ -66,7 +63,6 @@ function SignUpForm({ onLogin }) {
         <input
           type="text"
           id="password"
-          autoComplete="off"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -74,7 +70,6 @@ function SignUpForm({ onLogin }) {
         <input
           type="text"
           id="password_confirmation"
-          autoComplete="off"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
