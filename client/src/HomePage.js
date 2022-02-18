@@ -8,13 +8,13 @@ export default function HomePage({ chores, isPublic, handleUpdate }) {
         <p>Homepage - Status: Working</p>
         <p>Homepage - Section 1: Chores assigned to User (incomplete)</p>
         {chores
-          .filter((chore) => chore.completed == false)
+          .filter((chore) => chore.completed === false)
           .map((i) => (
             <ChoreCard chore={i} key={`${i.id}`} handleUpdate={handleUpdate} />
           ))}
         <p>Homepage - Section 2: Chores unassigned (incomplete)</p>
         {isPublic
-          .filter((chore) => chore.completed == false)
+          .filter((chore) => chore.completed === false)
           .map((i) => (
             <ChoreCard chore={i} key={`${i.id}`} handleUpdate={handleUpdate} />
           ))}

@@ -6,7 +6,7 @@ export default function CompletedChores({ isPublic }) {
     <div>
       <p>CompletedChores - Status: Working</p>
       {isPublic
-        .filter((chore) => chore.completed == true)
+        .filter((chore) => chore.completed === true)
         .map((i) => (
           <ChoreCard chore={i} key={`${i.id}`} />
         ))}

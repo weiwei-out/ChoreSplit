@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :chores
-  # resources :user_chores, only: [:index]
+  resources :user_chores, only: [:index]
 
   patch '/chores/:id', to: "chores#update"
 
@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   post '/signup', to: "users#create"
   get '/me', to: "users#show"
   
-  # post '/login', to: "sessions#create"
-  # delete '/logout', to: "sessions#destroy" 
+  post '/login', to: "sessions#create"
+  delete '/logout', to: "sessions#destroy" 
 
   get 'userchores', to: "user_chores#index"
 

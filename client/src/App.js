@@ -6,10 +6,23 @@ import NavBar from "./NavBar";
 import CreateChore from "./CreateChore";
 import CompletedChores from "./CompletedChores";
 import ChoreCard from "./ChoreCard";
+import Login from "./Login";
 
 function App() {
   const [isPublic, setIsPublic] = useState([]);
   const [chores, setChores] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // for auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (!user) return <Login onLogin={setUser} />;
 
   //GET -> Chores that belong to User
   useEffect(() => {
@@ -61,8 +74,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
       <Switch>
+        <Route path="/new">
+          <CreateChore user={user} />
+        </Route>
         <Route exact path="/">
           <HomePage
             chores={chores}
